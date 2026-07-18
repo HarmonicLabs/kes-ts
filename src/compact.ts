@@ -17,7 +17,7 @@ import {
     skBodySize,
     skWithPeriodSize,
     writePeriod,
-} from "./common.ts";
+} from "./common";
 import {
     sumKeygen,
     sumKeygenSlice,
@@ -26,13 +26,13 @@ import {
     sumUpdateSlice,
     sumGetPeriod,
     sumSkBodySize,
-} from "./sum.ts";
+} from "./sum";
 import {
     SUM0_COMPACT_SIG_SIZE,
     sum0CompactRecompute,
     sum0CompactSignFromSlice,
     sum0Keygen,
-} from "./sum0.ts";
+} from "./sum0";
 
 export function compactSignatureSize(depth: number): number {
     return compactSigSize(depth);

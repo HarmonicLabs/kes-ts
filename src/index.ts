@@ -25,7 +25,7 @@ export {
     withPeriodZero,
     readPeriod,
     writePeriod,
-} from "./common.ts";
+} from "./common";
 
 export {
     SUM0_SK_BODY,
@@ -39,7 +39,7 @@ export {
     sum0CompactSign,
     sum0CompactVerify,
     sum0CompactRecompute,
-} from "./sum0.ts";
+} from "./sum0";
 
 export {
     sumKeygen,
@@ -61,7 +61,7 @@ export {
     updateSum6,
     toPkSum6,
     getPeriodSum6,
-} from "./sum.ts";
+} from "./sum";
 
 export {
     compactKeygen,
@@ -79,7 +79,7 @@ export {
     verifySum6Compact,
     signSum6Compact,
     updateSum6Compact,
-} from "./compact.ts";
+} from "./compact";
 
 // ---------------------------------------------------------------------------
 // wasm-kes compatible API (Sum6 non-compact — Cardano headers)
@@ -95,7 +95,7 @@ import {
     SUM6_SIG_SIZE as _SUM6_SIG,
     SUM6_SK_BODY as _SUM6_SK_BODY,
     SUM6_SK_SIZE as _SUM6_SK_SIZE,
-} from "./sum.ts";
+} from "./sum";
 
 /**
  * Verify a Sum6 KES signature (448 bytes) — drop-in for wasm-kes `verify`.

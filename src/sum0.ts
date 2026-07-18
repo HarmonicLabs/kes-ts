@@ -15,7 +15,7 @@ import {
     SIGMA_SIZE,
     assertLen,
     bytesEq,
-} from "./common.ts";
+} from "./common";
 
 export const SUM0_SK_BODY = INDIVIDUAL_SECRET_SIZE; // 32
 export const SUM0_SK_SIZE = SUM0_SK_BODY + PERIOD_SIZE; // 36

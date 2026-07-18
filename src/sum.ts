@@ -16,7 +16,7 @@ import {
     splitSeed,
     sumSigSize,
     writePeriod,
-} from "./common.ts";
+} from "./common";
 import {
     SUM0_SK_BODY,
     sum0Keygen,
@@ -24,7 +24,7 @@ import {
     sum0SignFromSlice,
     sum0ToPk,
     sum0Verify,
-} from "./sum0.ts";
+} from "./sum0";
 
 /** SK body size (no period) at depth d */
 export function sumSkBodySize(depth: number): number {

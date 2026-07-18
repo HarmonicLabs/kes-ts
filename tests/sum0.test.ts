@@ -9,8 +9,8 @@ import {
     SUM0_SK_SIZE,
     SUM0_SIG_SIZE,
     SUM0_COMPACT_SIG_SIZE,
-} from "../src/sum0.ts";
-import { bytesEq } from "../src/common.ts";
+} from "../src/sum0";
+import { bytesEq } from "../src/common";
 
 const MSG = new TextEncoder().encode("test message");
 const SEED = new TextEncoder().encode("test string of 32 byte of lenght");

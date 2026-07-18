@@ -5,7 +5,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { bytesEq, withPeriodZero } from "../src/common.ts";
+import { bytesEq, withPeriodZero } from "../src/common";
 import {
     keygenSum6,
     signSum6,
@@ -21,14 +21,14 @@ import {
     SUM6_SK_BODY,
     SUM6_SK_SIZE,
     SUM6_SIG_SIZE,
-} from "../src/sum.ts";
+} from "../src/sum";
 import {
     keygenSum6Compact,
     signSum6Compact,
     updateSum6Compact,
     verifySum6Compact,
     SUM6_COMPACT_SIG_SIZE,
-} from "../src/compact.ts";
+} from "../src/compact";
 
 const VEC = join(import.meta.dir, "vectors");
 const SEED = new TextEncoder().encode("test string of 32 byte of lenght");
@@ -139,7 +139,7 @@ describe("Haskell interop — SumCompact", () => {
 describe("wasm-kes compatible API", () => {
     test("verify/sign/keygen surface", async () => {
         const { verify, sign, kes_keygen, kes_update, kes_to_pk, kes_get_period } =
-            await import("../src/index.ts");
+            await import("../src/index");
         const { sk, pk } = kes_keygen(SEED.slice());
         expect(kes_get_period(sk)).toBe(0);
         expect(bytesEq(kes_to_pk(sk), pk)).toBe(true);

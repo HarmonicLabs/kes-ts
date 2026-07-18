@@ -7,7 +7,7 @@ import {
     compactSigSize,
     skBodySize,
     bytesEq,
-} from "../src/common.ts";
+} from "../src/common";
 
 const SEED = new TextEncoder().encode("test string of 32 byte of lenght");
 
