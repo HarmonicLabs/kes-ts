@@ -64,4 +64,4 @@ Vectors under `tests/vectors/` from IOHK `kes` interop suite.
 
 ## License
 
-Apache-2.0. Design from IOHK; TypeScript implementation by Harmonic Labs.
+Apache-2.0. TypeScript implementation by Harmonic Labs.
