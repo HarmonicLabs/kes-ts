@@ -1,7 +1,7 @@
 {
   "name": "@harmoniclabs/kes",
   "version": "0.1.0-dev0",
-  "description": "Pure TypeScript Cardano KES (MMM Sum composition of Ed25519). Port of IOHK kes-summed-ed25519.",
+  "description": "Pure TypeScript Cardano KES (MMM Sum composition of Ed25519).",
   "type": "module",
   "license": "Apache-2.0",
   "main": "src/index.ts",
