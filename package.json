@@ -1,0 +1,29 @@
+{
+  "name": "@harmoniclabs/kes",
+  "version": "0.1.0-dev0",
+  "description": "Pure TypeScript Cardano KES (MMM Sum composition of Ed25519). Port of IOHK kes-summed-ed25519.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@harmoniclabs/crypto": "file:../crypto"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "cardano",
+    "kes",
+    "ed25519",
+    "sum",
+    "mmm"
+  ]
+}
