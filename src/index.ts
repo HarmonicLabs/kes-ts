@@ -82,6 +82,9 @@ export {
 } from "./compact";
 
 // ---------------------------------------------------------------------------
+// Pluggable raw ed25519 verifier for the KES leaf (see sum0.ts).
+export { setEd25519Verify, getEd25519Verify, type Ed25519Verify } from "./sum0";
+
 // wasm-kes compatible API (Sum6 non-compact — Cardano headers)
 // ---------------------------------------------------------------------------
 

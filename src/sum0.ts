@@ -75,6 +75,21 @@ export function sum0SignFromSlice(sk: Uint8Array, message: Uint8Array): Uint8Arr
     return getEd25519Signature_sync(message, sk.subarray(0, SUM0_SK_BODY));
 }
 
+/** Raw ed25519 verify used at the KES leaf. Pluggable so a host can supply a
+ *  faster implementation (e.g. noble's pure-TS ed25519, ~30x faster than the
+ *  textbook BigInt one in @harmoniclabs/crypto's `_sync` variant). */
+export type Ed25519Verify = (signature: Uint8Array, message: Uint8Array, publicKey: Uint8Array) => boolean;
+
+let ed25519Verify: Ed25519Verify = verifyEd25519Signature_sync;
+
+export function setEd25519Verify(fn: Ed25519Verify | null | undefined): void {
+    ed25519Verify = typeof fn === "function" ? fn : verifyEd25519Signature_sync;
+}
+
+export function getEd25519Verify(): Ed25519Verify {
+    return ed25519Verify;
+}
+
 export function sum0Verify(
     signature: Uint8Array,
     _period: number,
@@ -84,7 +99,7 @@ export function sum0Verify(
     if (signature.length !== SUM0_SIG_SIZE) return false;
     if (publicKey.length !== PUBLIC_KEY_SIZE) return false;
     try {
-        return verifyEd25519Signature_sync(signature, message, publicKey);
+        return ed25519Verify(signature, message, publicKey);
     } catch {
         return false;
     }
@@ -130,7 +145,7 @@ export function sum0CompactRecompute(
     const edSig = signature.subarray(0, SIGMA_SIZE);
     const leafPk = signature.subarray(SIGMA_SIZE, SIGMA_SIZE + PUBLIC_KEY_SIZE);
     try {
-        if (!verifyEd25519Signature_sync(edSig, message, leafPk)) return null;
+        if (!ed25519Verify(edSig, message, leafPk)) return null;
     } catch {
         return null;
     }
