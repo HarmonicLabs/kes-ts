@@ -150,3 +150,19 @@ export function kes_get_period(sk_buffer: Uint8Array): number {
 export { _SUM6_SIG as SUM6_SIGNATURE_SIZE };
 export { _SUM6_SK_BODY as SUM6_SECRET_KEY_BODY_SIZE };
 export { _SUM6_SK_SIZE as SUM6_SECRET_KEY_SIZE };
+
+// ---------------------------------------------------------------------------
+// Stake-pool KES operations: cardano-cli file formats, operational certificates,
+// KES period status / expiry, rotation (see src/ops/).
+// ---------------------------------------------------------------------------
+export { cborEncode, cborDecode, toHex, fromHex, type MiniCbor } from "./ops/cbor";
+export { EnvelopeType, parseTextEnvelope, serializeTextEnvelope, envelopeBytes, envelopeOfBytes, type TextEnvelope } from "./ops/envelope";
+export {
+    coldKeyFromSecret, opcertSigningBytes, opcertFieldsToCbor, decodeOperationalCert, encodeOperationalCert, decodeIssueCounter, encodeIssueCounter,
+    issueOperationalCert, verifyOpcertSignature, checkOperationalCert, checkCounterProgression,
+    type OpcertFields, type OperationalCert, type IssueCounter, type ColdKey, type OpcertCheckInput, type OpcertCheck,
+} from "./ops/opcert";
+export {
+    KES_MAX_EVOLUTIONS, zeroise, generateKesKey, kesKeyFromEnvelopes, kesKeyToEnvelopes, kesEvolution, evolveKesTo, kesPeriodOfSlot, kesStatus, rotateKes,
+    type KesKey, type KesGenesis, type KesHealth, type KesStatus, type RotationInput, type RotationResult,
+} from "./ops/lifecycle";
