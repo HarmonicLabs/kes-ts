@@ -2,16 +2,33 @@
   "name": "@harmoniclabs/kes",
   "version": "0.1.0",
   "description": "Pure TypeScript Cardano KES (MMM Sum composition of Ed25519).",
-  "type": "module",
-  "license": "Apache-2.0",
-  "main": "src/index.ts",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "commonjs",
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
   "scripts": {
+    "build": "rm -rf ./dist && tsc -p ./tsconfig.build.json",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && bun test"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "author": "Harmonic Laboratories",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarmonicLabs/kes-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HarmonicLabs/kes-ts/issues"
+  },
+  "homepage": "https://github.com/HarmonicLabs/kes-ts#readme",
   "dependencies": {
     "@harmoniclabs/crypto": "^0.3.1"
   },

@@ -2,7 +2,7 @@
 
 ## 0.1.0
 
-First npm release.
+First npm release. Published as CommonJS in `dist/` with type declarations (works in Node, Bun and bundlers).
 
 ### Added
 - Sum6 KES: key generation, evolution, signing and verification in pure TypeScript.
